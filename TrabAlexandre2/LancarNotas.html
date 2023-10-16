@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LancarNotas.html">
+    <title>Lançar Notas</title>
+</head>
+<body>
+    <header>
+        <p><img src="logo.png.png"></p>
+    
+        <nav class="menu">
+            <ul>
+                
+                <li><a href="PaginaInicial.html">Página Inicial</a></li>
+                <li><a href="AreaDoProfessor.html">Área do Professor</a></li>
+    
+            </ul>
+        </nav>
+    </header>
+    <h1>Lançar Notas</h1>
+    
+    <form id="nota-form">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="text">Disciplina:</label>
+        <input type="text" id="Disciplina" name="Disciplina" required>
+
+        <label for="text">Nota:</label>
+        <input type="text" id="Nota" name="Nota" required>
+
+        <button type="button" id="submit-button">Lançar Nota</button>
+    </form>
+
+    <div id="nota-list">
+        <!-- Notas lançadas serão exibidas aqui -->
+    </div>
+
+    <script src="LancarNotas.html"></script>
+</body>
+<footer>
+    <p>Todos os direitos reservados &copy; Estudar+educ. 2023 </p>
+</footer>
+<style>
+
+header {
+    background-color: goldenrod;    
+    }
+    
+     p img {
+            position: absolute center;
+            border-radius: 30%;
+            width: 160px;
+            height: 160px;
+    }
+    p {
+        text-align: center;
+        
+    }
+    .menu {
+        text-align: center;
+        background-color: #333; 
+        padding: 10px 0;
+    }
+    
+    .menu ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .menu ul li {
+        display: inline;
+        margin-right: 20px; 
+    }
+    
+    .menu ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .menu ul li a {
+        padding: 10px;
+        text-decoration: none;
+        color: #fff; 
+        font-weight: bold;
+        font-size: 16px; 
+    }
+    footer {
+        background-color: #333;
+        color:white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            text-align: center;
+            background-color: rgb(255, 255, 99);
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 20px;
+            border: 1px solid rgb(255, 255, 99);
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background-color: black;
+            color: rgb(255, 255, 99);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+    form {
+    background-color: goldenrod;
+    margin: 20px auto;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#nota-list {
+    margin: 20px auto;
+    max-width: 300px;
+    text-align: center;
+
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const notaForm = document.getElementById("nota-form");
+    const notaList = document.getElementById("nota-list");
+
+    notaForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const disciplina = document.getElementById("disciplina").value;
+        const nota = document.getElementById("nota").value;
+
+        if (!disciplina || !nota) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
+        const notaItem = document.createElement("div");
+        notaItem.classList.add("nota-item");
+        notaItem.innerHTML = `
+            <strong>Disciplina:</strong> ${disciplina}, <strong>Nota:</strong> ${nota}
+        `;
+
+        notaList.appendChild(notaItem);
+
+        document.getElementById("disciplina").value = "";
+        document.getElementById("nota").value = "";
+    });
+});
+
+</script>
+</html>

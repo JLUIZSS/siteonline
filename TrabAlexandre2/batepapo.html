@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Bate-Papo</title>
+    <link rel="stylesheet" href="batepapo.html">
+</head>
+<body>
+    <header>
+        <p><img src="logo.png.png"></p>
+    
+        <nav class="menu">
+            <ul>
+                <li><a href="PaginaInicial.html" >Página Inicial</a></li>
+                <li><a href="AreaDoAluno.html">Área do Aluno</a></li>
+                <li><a href="AreaDoProfessor.html">Área do Professor</a></li>
+    
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <div class="chat-container">
+        <div class="chat-output" id="chat-output"></div>
+        <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+        <button id="send-button">Enviar</button>
+    </div>
+    <script src="batepapo.html"></script>
+</body>
+<br>
+<footer>
+    <p>Todos os direitos reservados &copy; Estudar+educ. 2023 </p>
+</footer>
+
+<style>
+
+header {
+    background-color: goldenrod;    
+    }
+    
+     p img {
+            position: absolute center;
+            border-radius: 30%;
+            width: 160px;
+            height: 160px;
+    }
+    p {
+        text-align: center;
+        
+    }
+    .menu {
+        text-align: center;
+        background-color: #333; 
+        padding: 10px 0;
+    }
+    
+    .menu ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .menu ul li {
+        display: inline;
+        margin-right: 20px; 
+    }
+    
+    .menu ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .menu ul li a {
+        padding: 10px;
+        text-decoration: none;
+        color: #fff; 
+        font-weight: bold;
+        font-size: 16px; 
+    }
+    footer {
+        background-color: #333;
+        color:white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px goldenrod;
+}
+
+.chat-output {
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid goldenrod;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#message-input {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid goldenrod;
+}
+
+#send-button {
+    width: 100%;
+    padding: 10px;
+    background-color: goldenrod;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const chatOutput = document.getElementById('chat-output');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', function () {
+        const message = messageInput.value.trim();
+        if (message !== '') {
+            appendMessage('Você:', message);
+            messageInput.value = '';
+        }
+    });
+
+    function appendMessage(sender, text) {
+        const messageElement = document.createElement('div');
+        messageElement.innerHTML = `<strong>${sender}</strong>: ${text}`;
+        chatOutput.appendChild(messageElement);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+    }
+});
+
+</script>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="quiz.html">
+</head>
+<body>
+    <header>
+        <p><img src="logo.png.png"></p>
+    
+        <nav class="menu">
+            <ul>
+                <li><a href="PaginaInicial.html" >Página Inicial</a></li>
+                <li><a href="AreaDoAluno.html">Área do Aluno</a></li>
+                <li><a href="AreaDoProfessor.html">Área do Professor</a></li>
+    
+            </ul>
+        </nav>
+    </header>
+<br>
+
+    <div class="quiz-container">
+        <h1>Quiz de Exemplo</h1>
+        <div id="question-container">
+            <p id="question">Pergunta 1: Java é a abreviação de "JavaScript"?</p>
+            <ul id="options">
+                <li><input type="radio" name="answer" value="Paris"> Verdade</li>
+                <li><input type="radio" name="answer" value="Londres">Mentira</li>
+                <li><input type="radio" name="answer" value="Berlim"> Não sei </li>
+            </ul>
+        </div>
+        <button id="next-button">Próxima Pergunta</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="quiz.html"></script>
+</body>
+<br>
+<br>
+<footer>
+    <p>Todos os direitos reservados &copy; Estudar+educ. 2023 </p>
+</footer>
+<style>
+
+header {
+    background-color: goldenrod;    
+    }
+    
+     p img {
+            position: absolute center;
+            border-radius: 30%;
+            width: 160px;
+            height: 160px;
+    }
+    p {
+        text-align: center;
+        
+    }
+    .menu {
+        text-align: center;
+        background-color: #333; 
+        padding: 10px 0;
+    }
+    
+    .menu ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .menu ul li {
+        display: inline;
+        margin-right: 20px; 
+    }
+    
+    .menu ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .menu ul li a {
+        padding: 10px;
+        text-decoration: none;
+        color: #fff; 
+        font-weight: bold;
+        font-size: 16px; 
+    }
+    footer {
+        background-color: #333;
+        color:white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.quiz-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    color: #333;
+}
+
+#options li {
+    list-style-type: none;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<script>
+    const questions = [
+    {
+        question: "Java é a abreviação de JavaScript.?",
+        options: ["Verdade", "Mentira", "Não sei"],
+        answer: "Mentira"
+    },
+    {
+        question: "Qual empresa criou o Java e em que ano ?",
+        options: ["Oracle,2008", "Sun Microsystem,1995", "Google, 1995"],
+        answer: "Sun Microsystem,1995"
+    },
+    {
+        question: "Em Java, palavras-chave como public, protected e private são modificadoras de acesso ou de visibilidade e podem ser utilizadas em classes e seus atributos e métodos para definir acessos mais ou menos restritos a esses elementos. Na ordem de menos restrito para mais restrito, os tipos de acesso que essas palavras-chave (ou a ausência delas) podem definir são: ",
+        options: ["Público, padrão, protegido e privado.", "público, protegido, padrão e privado. ", "amigo, público, padrão e privado"],
+        answer: "público, protegido, padrão e privado. "
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const resultElement = document.getElementById("result");
+const nextButton = document.getElementById("next-button");
+
+function displayQuestion() {
+    const question = questions[currentQuestion];
+    questionElement.textContent = `Pergunta ${currentQuestion + 1}: ${question.question}`;
+    optionsElement.innerHTML = "";
+    
+    question.options.forEach((option) => {
+        const li = document.createElement("li");
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "answer";
+        input.value = option;
+        li.appendChild(input);
+        li.appendChild(document.createTextNode(option));
+        optionsElement.appendChild(li);
+    });
+}
+
+function checkAnswer() {
+    const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+    if (!selectedAnswer) {
+        alert("Por favor, selecione uma resposta.");
+        return;
+    }
+
+    if (selectedAnswer.value === questions[currentQuestion].answer) {
+        score++;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        displayQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    questionElement.textContent = "";
+    optionsElement.innerHTML = "";
+    resultElement.textContent = `Você acertou ${score} de ${questions.length} perguntas.`;
+    nextButton.style.display = "none";
+}
+
+displayQuestion();
+
+nextButton.addEventListener("click", checkAnswer);
+
+</script>
+</html>

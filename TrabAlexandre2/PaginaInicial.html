@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PaginaInicial.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Estudar+educ.</title>
+</head>
+<body>
+    <header>
+    <p><img src="logo.png.png"></p>
+
+    <nav class="menu">
+        <ul>
+            <div class="search-container">
+                <input type="text" id="search-box" placeholder="Pesquisar...">
+                <button id="search-button">Buscar</button>
+            </div>
+            <li><a href="SobreNos.html">Sobre Nós</a></li>
+            <li><a href="cursos.html" >Cursos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="AreaDoProfessor.html">Área do Professor</a></li>
+
+            <div class="container">
+                <h4>Escolha uma opção:</h4>
+                <button class="welcome-button" onclick="window.location.href='cadastro.html'">Cadastrar</button>
+                
+                
+                <button class="welcome-button" onclick="window.location.href='entre.html'">Entrar</button>
+            
+            </div>
+        </ul>
+    </nav>
+</header>
+<strong><marquee behavior="50" direction="center">Estudar+educ. Os melhores cursos para você, com os melhores preços!</marquee></strong>
+<br>
+<hr>
+<hr>
+<hr>
+<br>
+<div class="slideshow-container">
+    <div class="slide fade">
+        <img src="anuncio4.png" alt="anuncio">
+    </div>
+    <div class="slide fade">
+        <img src="anuncio2.png" alt="anuncio2">
+    </div>
+    <div class="slide fade">
+        <img src="anuncio3.png" alt="anuncio3">
+    </div>
+</div>
+<script src="script.js"></script>
+
+<h1>Estudar+educ. Os melhores cursos para você, com os melhores preços!</h1>
+<h1>Venha Conferir.</h1>
+<br>
+<h2>Os mais acessados!</h2>
+<section class="produto">
+    <img src="java.png" alt="Java">
+    <h3>Java</h3>
+    <p>Aprenda Java COMPLETO 2023 </p>
+    <p>54,5 horas no total.398 aulas. Todos os níveis</p>
+    <p class="preco">R$ 130,00</p>
+    <a href="carrinho.html">
+        <button type="button">Comprar</button>
+    
+    </a>
+</section>
+<br>
+<hr>
+<hr>
+<hr>
+<br>
+<footer>
+    <p>Todos os direitos reservados &copy; Estudar+educ. 2023 </p>
+</footer>
+</body>
+
+<style>
+    h4{
+        color:white;
+    }
+h2{
+    text-align: left;
+}
+
+.produto {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.produto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.preco {
+    font-weight: bold;
+    color: #ff5733;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+  hr {
+    border:1px solid goldenrod;
+}
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.slideshow-container {
+position: relative center ;
+max-width: 800px;
+margin: 0 auto;
+width: 800px;
+height: 300px;
+align-items: center;
+}
+
+.slide {
+display: none;
+}
+
+img {
+position: relative center;
+width: 800px;
+height: 300px;
+align-items: center;
+text-align: center;
+}
+
+</style>
+
+</html>
